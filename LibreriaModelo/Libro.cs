@@ -16,10 +16,16 @@ namespace LibreriaModelo
 
         [ForeignKey("AutorId")]
         public int AutorId { get; set; }
+
+        //Objeto de navegación
         public Autor? Autor { get; set; }
 
         [ForeignKey("BibliotecaId")]
         public int BibliotecaId { get; set; }
+
+        //Objeto de navegación
         public Biblioteca? Biblioteca { get; set; }
+
+        List<Prestamo>? Prestamos { get; set; } = new List<Prestamo>(); //Una buena práctica es inicializarla de una vez
     }
 }

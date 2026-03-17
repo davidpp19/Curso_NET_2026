@@ -18,6 +18,8 @@ namespace LibreriaModelo
         //LLave foranea
         [ForeignKey("PaisId")] //Siempre el nombre y despues el "Id"
         public int PaisId { get; set; }
+
+        //Objeto de navegación
         public Pais? Pais { get; set; }
 
         List<Libro>? Libros { get; set; } = new List<Libro>(); //Una buena práctica es inicializarla de una vez
