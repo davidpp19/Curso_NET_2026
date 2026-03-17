@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace LibreriaModelo
 {
-    public class Biblioteca
+    public class Cliente
     {
-        //Llave primaria
         [Key] public int Id { get; set; }
-        public string Nombre_Biblioteca { get; set; }
-        public string Direccion_Biblioteca { get; set; }
-
+        public string Nombre_Cliente { get; set; }
+        public string Correo_Cliente { get; set; }
+        public string Nombre_Usuario { get; set; }
+        public string Contrasena_Cliente { get; set; }
     }
 }

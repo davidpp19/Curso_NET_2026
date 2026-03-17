@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 
 namespace LibreriaModelo
 {
-    public class Biblioteca
+    public class Pais
     {
-        //Llave primaria
         [Key] public int Id { get; set; }
-        public string Nombre_Biblioteca { get; set; }
-        public string Direccion_Biblioteca { get; set; }
+        public string Nombre_Pais { get; set; }
 
     }
 }
