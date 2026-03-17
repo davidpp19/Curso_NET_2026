@@ -1,4 +1,9 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Libreria.API.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<LibreriaAPIContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("LibreriaAPIContext") ?? throw new InvalidOperationException("Connection string 'LibreriaAPIContext' not found.")));
 
 // Add services to the container.
 
