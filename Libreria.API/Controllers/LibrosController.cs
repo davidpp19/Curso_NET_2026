@@ -33,7 +33,7 @@ namespace Libreria.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Libro>> GetLibro(int id)
         {
-            var libro = await _context.Libro.FindAsync(id);
+            var libro = await _context.Libro.Include(l => l.Autor).Include(l => l.Biblioteca).FirstOrDefaultAsync(l => l.Id == id);
 
             if (libro == null)
             {

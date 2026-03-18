@@ -33,7 +33,7 @@ namespace Libreria.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Prestamo>> GetPrestamo(int id)
         {
-            var prestamo = await _context.Prestamo.FindAsync(id);
+            var prestamo = await _context.Prestamo.Include(p => p.Cliente).Include(p => p.Libro).FirstOrDefaultAsync(p => p.Id == id);
 
             if (prestamo == null)
             {

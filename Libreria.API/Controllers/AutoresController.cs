@@ -36,7 +36,7 @@ namespace Libreria.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Autor>> GetAutor(int id)
         {
-            var autor = await _context.Autor.FindAsync(id);
+            var autor = await _context.Autor.Include(a => a.Pais).FirstOrDefaultAsync(a => a.Id == id);
 
             if (autor == null)
             {
