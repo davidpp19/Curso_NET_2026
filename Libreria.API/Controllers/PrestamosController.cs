@@ -25,7 +25,8 @@ namespace Libreria.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Prestamo>>> GetPrestamo()
         {
-            return await _context.Prestamo.ToListAsync();
+            var prestamo = await _context.Prestamo.Include(p => p.Cliente).Include(p => p.Libro).ToListAsync();
+            return prestamo;
         }
 
         // GET: api/Prestamos/5

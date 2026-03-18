@@ -6,8 +6,12 @@ builder.Services.AddDbContext<LibreriaAPIContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("LibreriaAPIContext") ?? throw new InvalidOperationException("Connection string 'LibreriaAPIContext' not found.")));
 
 // Add services to the container.
+//Se indica que en el AddController vamos a serializar.
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    );
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

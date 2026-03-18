@@ -25,7 +25,8 @@ namespace Libreria.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Libro>>> GetLibro()
         {
-            return await _context.Libro.ToListAsync();
+            var libro = await _context.Libro.Include(l => l.Autor).Include(l => l.Biblioteca).ToListAsync();
+            return libro;
         }
 
         // GET: api/Libros/5

@@ -23,9 +23,13 @@ namespace Libreria.API.Controllers
 
         // GET: api/Autores
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Autor>>> GetAutor()
+        public async Task<ActionResult<IEnumerable<Autor>>> GetAutor() 
         {
-            return await _context.Autor.ToListAsync();
+            //Agregamos el include para que nos traiga la información del país al momento de consultar los autores, en una lista asincrona, y retornamos la lista de autores.
+            //El => es una expresión lambda que se utiliza para acceder a la propiedad Pais de cada autor en la consulta. Esto permite que se incluya la información del país relacionada con cada autor en el resultado de la consulta.
+
+            var autor = await _context.Autor.Include(a => a.Pais).ToListAsync();
+            return autor;
         }
 
         // GET: api/Autores/5
