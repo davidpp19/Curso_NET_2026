@@ -17,7 +17,13 @@ namespace Libreria.MVC.Controllers
         // GET: PaisesController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var paises = CRUD<Pais>.GetById(id);
+
+            if(paises == null)
+            {
+                return NotFound();
+            }
+            return View(paises);
         }
 
         // GET: PaisesController/Create
@@ -29,57 +35,73 @@ namespace Libreria.MVC.Controllers
         // POST: PaisesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Pais pais)
         {
             try
             {
+                CRUD<Pais>.Create(pais);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
+                return View(pais);
             }
         }
 
         // GET: PaisesController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var pais = CRUD<Pais>.GetById(id);
+            if (pais == null)
+            {
+                return NotFound();
+            }
+            return View(pais);
         }
 
         // POST: PaisesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, Pais pais)
         {
             try
             {
+                CRUD<Pais>.Update(id, pais);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex) 
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
+                return View(pais);
             }
         }
 
         // GET: PaisesController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var pais = CRUD<Pais>.GetById(id);
+            if (pais == null)
+            {
+                return NotFound();
+            }
+            return View(pais);
         }
 
         // POST: PaisesController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Pais pais)
         {
             try
             {
+                CRUD<Pais>.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex) 
             {
-                return View();
+                ModelState.AddModelError("", ex.Message);
+                return View(pais);
             }
         }
     }
