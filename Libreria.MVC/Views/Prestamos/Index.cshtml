@@ -31,7 +31,13 @@
                 @Html.DisplayNameFor(model => model.ClienteId)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.LibroId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Libro)
             </th>
             <th></th>
         </tr>
@@ -58,7 +64,13 @@
                 @Html.DisplayFor(modelItem => item.ClienteId)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nombre_Cliente)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.LibroId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Libro.Titulo_Libro)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
