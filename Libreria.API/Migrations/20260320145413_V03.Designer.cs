@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Libreria.API.Migrations
 {
     [DbContext(typeof(LibreriaAPIContext))]
-    [Migration("20260317163522_V01")]
-    partial class V01
+    [Migration("20260320145413_V03")]
+    partial class V03
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,7 +38,7 @@ namespace Libreria.API.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Fecha_Nacimiento")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Nombres_Autor")
                         .IsRequired()
@@ -171,10 +171,10 @@ namespace Libreria.API.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("Fecha_Devolucion")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("Fecha_Prestamo")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("LibroId")
                         .HasColumnType("integer");

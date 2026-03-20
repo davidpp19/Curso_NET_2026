@@ -5,7 +5,7 @@ using Libreria.API.Data;
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<LibreriaAPIContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("LibreriaAPIContext") ?? throw new InvalidOperationException("Connection string 'LibreriaAPIContext' not found.")));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("LibreriaBDD") ?? throw new InvalidOperationException("Connection string 'LibreriaBDD' not found.")));
 
 // Add services to the container.
 //Se indica que en el AddController vamos a serializar.

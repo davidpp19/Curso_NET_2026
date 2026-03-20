@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Libreria.API.Migrations
 {
     /// <inheritdoc />
-    public partial class V01 : Migration
+    public partial class V03 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -63,7 +63,7 @@ namespace Libreria.API.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Nombres_Autor = table.Column<string>(type: "text", nullable: false),
                     Apellidos_Autor = table.Column<string>(type: "text", nullable: false),
-                    Fecha_Nacimiento = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Fecha_Nacimiento = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     PaisId = table.Column<int>(type: "integer", nullable: false)
                 },
                 constraints: table =>
@@ -112,8 +112,8 @@ namespace Libreria.API.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Descripcion_Prestamo = table.Column<string>(type: "text", nullable: false),
-                    Fecha_Prestamo = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    Fecha_Devolucion = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    Fecha_Prestamo = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    Fecha_Devolucion = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Estado_Prestamo = table.Column<bool>(type: "boolean", nullable: false),
                     ClienteId = table.Column<int>(type: "integer", nullable: false),
                     LibroId = table.Column<int>(type: "integer", nullable: false)

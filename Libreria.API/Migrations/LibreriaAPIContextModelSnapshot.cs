@@ -35,7 +35,7 @@ namespace Libreria.API.Migrations
                         .HasColumnType("text");
 
                     b.Property<DateTime>("Fecha_Nacimiento")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Nombres_Autor")
                         .IsRequired()
@@ -168,10 +168,10 @@ namespace Libreria.API.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<DateTime>("Fecha_Devolucion")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<DateTime>("Fecha_Prestamo")
-                        .HasColumnType("timestamp with time zone");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("LibroId")
                         .HasColumnType("integer");
