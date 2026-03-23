@@ -1,5 +1,7 @@
 //Se pone la URL del API para que el CRUD sepa a donde hacer las peticiones. Se hace en el Program.cs para que quede centralizado y no haya que ponerlo en cada controlador.
 using API.Consumer;
+using Libreria.Servicios;
+using Libreria.Servicios.Interfaces;
 using LibreriaModelo;
 CRUD<Pais>.EndPoint = "https://localhost:7278/api/Paises";
 CRUD<Autor>.EndPoint = "https://localhost:7278/api/Autores";
@@ -12,6 +14,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+
+builder.Services.AddAuthentication("Cookies") //cokies
+                .AddCookie("Cookies", options =>
+                {
+                    options.LoginPath = "/Account/Index"; // Ruta de inicio de sesión
+
+
+                });
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
