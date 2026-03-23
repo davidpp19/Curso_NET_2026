@@ -2,5 +2,6 @@
   <Project Path="API.Consumer/API.Consumer.csproj" Id="25be166f-a3bb-4063-b099-148f88032b90" />
   <Project Path="Libreria.API/Libreria.API.csproj" />
   <Project Path="Libreria.MVC/Libreria.MVC.csproj" Id="d1e937d1-e0f6-4cd0-a944-42317f73e93e" />
+  <Project Path="Libreria.Servicios/Libreria.Servicios.csproj" Id="c30569ab-c487-44c2-b558-3a86f215ebd8" />
   <Project Path="LibreriaModelo/LibreriaModelo.csproj" />
 </Solution>

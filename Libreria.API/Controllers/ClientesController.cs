@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using BCrypt.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Libreria.API.Data;
@@ -54,6 +55,8 @@ namespace Libreria.API.Controllers
 
             _context.Entry(cliente).State = EntityState.Modified;
 
+            cliente.Contrasena_Cliente = BCrypt.Net.BCrypt.HashPassword(cliente.Contrasena_Cliente);
+
             try
             {
                 await _context.SaveChangesAsync();
@@ -78,6 +81,8 @@ namespace Libreria.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
         {
+            cliente.Contrasena_Cliente = BCrypt.Net.BCrypt.HashPassword(cliente.Contrasena_Cliente);
+
             _context.Cliente.Add(cliente);
             await _context.SaveChangesAsync();
 
