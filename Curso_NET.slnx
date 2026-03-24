@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Elementos de la solución/">
+    <File Path="DockerFile.API" />
+  </Folder>
   <Project Path="API.Consumer/API.Consumer.csproj" Id="25be166f-a3bb-4063-b099-148f88032b90" />
   <Project Path="Libreria.API/Libreria.API.csproj" />
   <Project Path="Libreria.MVC/Libreria.MVC.csproj" Id="d1e937d1-e0f6-4cd0-a944-42317f73e93e" />
