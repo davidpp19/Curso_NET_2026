@@ -3,12 +3,12 @@ using API.Consumer;
 using Libreria.Servicios;
 using Libreria.Servicios.Interfaces;
 using LibreriaModelo;
-CRUD<Pais>.EndPoint = "https://localhost:7278/api/Paises";
-CRUD<Autor>.EndPoint = "https://localhost:7278/api/Autores";
-CRUD<Biblioteca>.EndPoint = "https://localhost:7278/api/Bibliotecas";
-CRUD<Cliente>.EndPoint = "https://localhost:7278/api/Clientes";
-CRUD<Libro>.EndPoint = "https://localhost:7278/api/Libros";
-CRUD<Prestamo>.EndPoint = "https://localhost:7278/api/Prestamos";
+CRUD<Pais>.EndPoint = "https://curso-net-2026.onrender.com/api/Paises";
+CRUD<Autor>.EndPoint = "https://curso-net-2026.onrender.com/api/Autores";
+CRUD<Biblioteca>.EndPoint = "https://curso-net-2026.onrender.com/api/Bibliotecas";
+CRUD<Cliente>.EndPoint = "https://curso-net-2026.onrender.com/api/Clientes";
+CRUD<Libro>.EndPoint = "https://curso-net-2026.onrender.com/api/Libros";
+CRUD<Prestamo>.EndPoint = "https://curso-net-2026.onrender.com/api/Prestamos";
 
 var builder = WebApplication.CreateBuilder(args);
 
